@@ -1,0 +1,79 @@
+:root {
+	--gap: 0.75rem; /* Espacio entre elementos ajustado */
+	--visible-slides: 8; /* Número de elementos visibles */
+}
+.products_subtitle {
+	font-size: 36px;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #e72929;
+	margin: 0;
+}
+.carousel {
+	display: flex;
+	gap: var(--gap);
+	overflow: hidden;
+	margin: 0rem auto;
+	margin-bottom: 3rem;
+	width: 90%;
+	flex-direction: column;
+}
+
+.carouselTrack {
+	display: flex;
+	gap: var(--gap);
+	animation: scroll 30s linear infinite;
+}
+
+.carouselItem {
+	flex: 0 0
+		calc(
+			(100% - var(--gap) * (var(--visible-slides) - 1)) / var(--visible-slides)
+		);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.carouselItem img {
+	width: 100%;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+}
+
+/* Animación de desplazamiento continuo */
+@keyframes scroll {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+@media (max-width: 1200px) {
+	:root {
+		--visible-slides: 6; /* Reduce el número de elementos visibles en pantallas más pequeñas */
+	}
+}
+
+@media (max-width: 992px) {
+	:root {
+		--visible-slides: 4; /* Ajuste para tabletas */
+	}
+}
+
+@media (max-width: 768px) {
+	:root {
+		--visible-slides: 3; /* Ajuste para pantallas móviles grandes */
+	}
+}
+
+@media (max-width: 480px) {
+	:root {
+		--visible-slides: 2; /* Ajuste para pantallas móviles pequeñas */
+	}
+}
